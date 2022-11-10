@@ -6,28 +6,14 @@ namespace BLL
     {
         public static bool AddStadium(DAL.Stadium obj)
         {
-            try
-            {
-                DAL.Lists.Stadiums.Add(obj);
-                return true;
-            }
-            catch
-            {
-                throw new Exception("Stadium Addition Exception");
-            }
+            DAL.Lists.Stadiums.Add(obj);
+            return true;
         }
         public static bool ReplaceStadium(DAL.Stadium obj, int position)
         {
-            try
-            {
-                DAL.Lists.Stadiums.RemoveAt(position);
-                DAL.Lists.Stadiums.Insert(position, obj);
-                return true;
-            }
-            catch
-            {
-                throw new Exception("Stadium Replacement Exception");
-            }
+            DAL.Lists.Stadiums.RemoveAt(position);
+            DAL.Lists.Stadiums.Insert(position, obj);
+            return true;
         }
         public static List<Stadium> FindStadium(string key)
         {

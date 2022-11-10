@@ -7,31 +7,16 @@ namespace BLL
     {
         public static bool SaveLists()
         {
-            try
-            {
-                System.IO.File.WriteAllText(DAL.Settings.SavingFolder + "\\players.json", string.Empty);
-                System.IO.File.WriteAllText(DAL.Settings.SavingFolder + "\\games.json", string.Empty);
-                System.IO.File.WriteAllText(DAL.Settings.SavingFolder + "\\stadiums.json", string.Empty);
-                System.IO.File.WriteAllText(DAL.Settings.SavingFolder + "\\teams.json", string.Empty);
-            }
-            catch
-            {
-                throw new Exception("Error with file clearing");
-            }
+            System.IO.File.WriteAllText(DAL.Settings.SavingFolder + "\\players.json", string.Empty);
+            System.IO.File.WriteAllText(DAL.Settings.SavingFolder + "\\games.json", string.Empty);
+            System.IO.File.WriteAllText(DAL.Settings.SavingFolder + "\\stadiums.json", string.Empty);
+            System.IO.File.WriteAllText(DAL.Settings.SavingFolder + "\\teams.json", string.Empty);
 
-            try
-            {
-                DAL.FileOperations.JSONWrite<List<Player>>(DAL.Settings.SavingFolder + "\\players.json", DAL.Lists.Players);
-                DAL.FileOperations.JSONWrite<List<Game>>(DAL.Settings.SavingFolder + "\\games.json", DAL.Lists.Games);
-                DAL.FileOperations.JSONWrite<List<Stadium>>(DAL.Settings.SavingFolder + "\\stadiums.json", DAL.Lists.Stadiums);
-                DAL.FileOperations.JSONWrite<List<Team>>(DAL.Settings.SavingFolder + "\\teams.json", DAL.Lists.Teams);
-                return true;
-            }
-            catch
-            {
-                throw new Exception("Saving error");
-            }
-
+            DAL.FileOperations.JSONWrite<List<Player>>(DAL.Settings.SavingFolder + "\\players.json", DAL.Lists.Players);
+            DAL.FileOperations.JSONWrite<List<Game>>(DAL.Settings.SavingFolder + "\\games.json", DAL.Lists.Games);
+            DAL.FileOperations.JSONWrite<List<Stadium>>(DAL.Settings.SavingFolder + "\\stadiums.json", DAL.Lists.Stadiums);
+            DAL.FileOperations.JSONWrite<List<Team>>(DAL.Settings.SavingFolder + "\\teams.json", DAL.Lists.Teams);
+            return true;
         }
         public static bool Remove(string key, int index)
         {
@@ -89,16 +74,9 @@ namespace BLL
 
         public static bool SaveSavingCatalog(string path)
         {
-            try
-            {
-                File.WriteAllText("SavingCatalog.txt", path);
-                DAL.Settings.SavingFolder = File.ReadAllText("SavingCatalog.txt");
-                return true;
-            }
-            catch
-            {
-                throw new Exception("Saving Catalog wasn't saved");
-            }
+            File.WriteAllText("SavingCatalog.txt", path);
+            DAL.Settings.SavingFolder = File.ReadAllText("SavingCatalog.txt");
+            return true;
         }
     }
 }

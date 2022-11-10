@@ -6,30 +6,16 @@ namespace BLL
     {
         public static bool AddGame(DAL.Game obj, DAL.Stadium stadium)
         {
-            try
-            {
-                stadium.Games.Add(obj.ToString());
-                DAL.Lists.Games.Add(obj);
-                return true;
-            }
-            catch
-            {
-                throw new Exception("Game Addition Exception");
-            }
+            stadium.Games.Add(obj.ToString());
+            DAL.Lists.Games.Add(obj);
+            return true;
         }
         public static bool ReplaceGame(DAL.Game obj, DAL.Stadium stadium, int position)
         {
-            try
-            {
-                DAL.Lists.Games.RemoveAt(position);
-                stadium.Games.Add(obj.ToString());
-                DAL.Lists.Games.Insert(position, obj);
-                return true;
-            }
-            catch
-            {
-                throw new Exception("Game Replacement Exception");
-            }
+            DAL.Lists.Games.RemoveAt(position);
+            stadium.Games.Add(obj.ToString());
+            DAL.Lists.Games.Insert(position, obj);
+            return true;
         }
 
         public static List<Game> FindGame(string key)

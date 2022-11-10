@@ -49,6 +49,11 @@ namespace DAL
             return $"{HomeTeam} проти {GuestTeam} ({HomeTeamScore}:{GuestTeamScore}) | {Date}";
         }
 
+        public Game Copy()
+        {
+            return (Game)this.MemberwiseClone();
+        }
+
         public string Display()
         {
             return $"Гра {HomeTeam} з {GuestTeam} ({HomeTeamScore} : {GuestTeamScore} - {Status});\nДата проведення: {Date};\nСтадіон - {Stadium} ({Spectators} глядачів)";

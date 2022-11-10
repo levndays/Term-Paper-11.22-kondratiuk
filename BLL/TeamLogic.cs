@@ -6,28 +6,14 @@ namespace BLL
     {
         public static bool AddTeam(DAL.Team obj)
         {
-            try
-            {
-                DAL.Lists.Teams.Add(obj);
-                return true;
-            }
-            catch
-            {
-                throw new Exception("Team Addition Exception");
-            }
+            DAL.Lists.Teams.Add(obj);
+            return true;
         }
         public static bool ReplaceTeam(DAL.Team obj, int position)
         {
-            try
-            {
-                DAL.Lists.Teams.RemoveAt(position);
-                DAL.Lists.Teams.Insert(position, obj);
-                return true;
-            }
-            catch
-            {
-                throw new Exception("Team Replacement Exception");
-            }
+            DAL.Lists.Teams.RemoveAt(position);
+            DAL.Lists.Teams.Insert(position, obj);
+            return true;
         }
     }
 }

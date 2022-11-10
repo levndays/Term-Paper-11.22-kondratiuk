@@ -6,28 +6,14 @@ namespace BLL
     {
         public static bool AddPlayer(DAL.Player obj)
         {
-            try
-            {
-                DAL.Lists.Players.Add(obj);
-                return true;
-            }
-            catch
-            {
-                throw new Exception("Player Addition Exception");
-            }
+            DAL.Lists.Players.Add(obj);
+            return true;
         }
         public static bool ReplacePlayer(DAL.Player obj, int position)
         {
-            try
-            {
-                DAL.Lists.Players.RemoveAt(position);
-                DAL.Lists.Players.Insert(position, obj);
-                return true;
-            }
-            catch
-            {
-                throw new Exception("Player Replacement Exception");
-            }
+            DAL.Lists.Players.RemoveAt(position);
+            DAL.Lists.Players.Insert(position, obj);
+            return true;
         }
         public static List<Player> FindPlayer(string key)
         {
